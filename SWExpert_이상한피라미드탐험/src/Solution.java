@@ -73,11 +73,11 @@ public class Solution{
                 }
             }
             if(item == 1 && target != 1)continue;
-            try {
+            
                 if (set_left.contains(item)) {
                     int[] adj = new int[]{item - hei + 1, item + 1, item + hei, item + hei + 1};
                     for (int i = 0; i < adj.length; i++) {
-                        if (!visited[adj[i]]) {
+                        if ( adj[i] <= 10000 && adj[i] >=1 && !visited[adj[i]]) {
                             visited[adj[i]] = true;
                             queue.offer(adj[i]);
                             dist[adj[i]] = dist[item] + 1;
@@ -89,7 +89,7 @@ public class Solution{
                 } else if (set_right.contains(item)) {
                     int[] adj = new int[]{item - hei, item - 1, item + hei, item + hei + 1};
                     for (int i = 0; i < adj.length; i++) {
-                        if (!visited[adj[i]]) {
+                        if (adj[i] <= 10000 && adj[i] >=1 && !visited[adj[i]]) {
                             visited[adj[i]] = true;
                             queue.offer(adj[i]);
                             dist[adj[i]] = dist[item] + 1;
@@ -101,7 +101,7 @@ public class Solution{
                 } else {
                     int[] adj = new int[]{item - hei, item - hei + 1, item - 1, item + 1, item + hei, item + hei + 1};
                     for (int i = 0; i < adj.length; i++) {
-                        if (!visited[adj[i]]) {
+                        if (adj[i] <= 10000 && adj[i] >=1 && !visited[adj[i]]) {
                             visited[adj[i]] = true;
                             queue.offer(adj[i]);
                             dist[adj[i]] = dist[item] + 1;
@@ -112,8 +112,6 @@ public class Solution{
                     }
 
                 }
-            }catch (Exception e){
-            }
         }
     }
 }
